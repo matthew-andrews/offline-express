@@ -56,8 +56,8 @@ offline({
 });
 ```
 
-*Note: the options listed in the client side should match the
-server side - and should **never change**. Changing them may prevent existing users from upgrading).*
+Note: the options listed in the client side should match the
+server side - and should **never change**. Changing them may prevent existing users from upgrading).
 
 ## Options
 
