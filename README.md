@@ -9,12 +9,12 @@ It was created by the team behind [Financial Times' award winning HTML5 web app]
 In particular:-
 
 > We use the appcache to store just enough Javascript, CSS and HTML to get the web app started (we call this the bootstrap) then deliver the rest through an ajax request, eval() it, then store it in localStorage*.
-> 
+>
 > And we don’t use it for the majority of our Javascript, HTML & CSS; or content (including images).
 
 **Offline express** will take care of:
 
-- Managing that bootstrap; 
+- Managing that bootstrap;
 - Ensuring the your user's appcache's only ever contain bootstrap code (never content)
 - And keeping your users' copies of your application javascript and css (which are stored in their browser's localStorage) up to date.
 
@@ -47,7 +47,7 @@ We expect you to be using Common JS modules.
 
 ```javascript
 
-// At the point in your code where you want to 
+// At the point in your code where you want to
 var offline = require('offline/client.js');
 
 offline({
