@@ -19,6 +19,9 @@ module.exports = function (options) {
 	if (!options || !options.js || !options.css) {
 		throw new Error("Paths to JS and CSS resources are required.");
 	}
+	if (!options.bootCallback) {
+		throw new Error("Need to provide boot callback");
+	}
 	options.cookie    = options.cookie    || 'up';
 	options.namespace = options.namespace || 'offline';
 	var app = express();
@@ -30,7 +33,8 @@ module.exports = function (options) {
 	// For now only support the normal case where
 	// we hijack the root URL if the cookie is set.
 	app.use(boot({
-		cookie: options.cookie
+		cookie: options.cookie,
+		bootCallback: options.bootCallback
 	}));
 
 	// The appcache iframe
@@ -52,6 +56,7 @@ module.exports = function (options) {
 	// The pre-json encoded applicaton resources for
 	// storage in localStorage and use when the app
 	// boots from the app cache.
+	// @deprecated
 	app.use(resourcesJSON({
 		namespace: options.namespace,
 		js: options.js,
