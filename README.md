@@ -4,19 +4,20 @@
 
 It's a piece of express middleware that sits between express and your express application.
 
-It uses the techniques described within the tutorial series **[How to make an offline HTML5 web app, FT style](http://labs.ft.com/2012/08/basic-offline-html5-web-app/)** to help deliver a reliable and robust offline experience.
+It uses the techniques described within the tutorial series **[How to make an offline HTML5 web app, FT style](http://labs.ft.com/2012/08/basic-offline-html5-web-app/)** to help deliver a reliable and robust offline experience in a way that is completely agnostic to your specific HTML5 application.
 
-In particular:-
+The main techniques it uses in particular:-
 
-> We use the appcache to store just enough Javascript, CSS and HTML to get the web app started (we call this the bootstrap) then deliver the rest through an ajax request, eval() it, then store it in localStorage*.
+> We use the appcache to store just enough Javascript, CSS and HTML to get the web app started (we call this the bootstrap) then deliver the rest through an ajax request, eval() it, then store it in localStorage.
 >
 > And we don’t use it for the majority of our Javascript, HTML & CSS; or content (including images).
 
 **Offline express** will take care of:
 
 - Managing that bootstrap;
-- Ensuring the your user's appcache's only ever contain bootstrap code (never content)
-- And keeping your users' copies of your application javascript and css (which are stored in their browser's localStorage) up to date.
+- Ensuring the your user's appcache's only ever contain bootstrap code (never content);
+- Keeping your users' copies of your application javascript and css (which are stored in their browser's localStorage) up to date;
+- And implementing any work arounds for specific browser bugs or inconsistencies.
 
 ## What this package isn't
 
