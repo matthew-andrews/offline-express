@@ -4,7 +4,7 @@
 
 It's a piece of express middleware that sits between express and your express application.
 
-It was created by the team behind [Financial Times' award winning HTML5 web app](http://app.ft.com) and uses the techniques described within the tutorial series **[How to make an offline HTML5 web app, FT style](http://labs.ft.com/2012/08/basic-offline-html5-web-app/)**.
+It uses the techniques described within the tutorial series **[How to make an offline HTML5 web app, FT style](http://labs.ft.com/2012/08/basic-offline-html5-web-app/)** to help deliver a reliable and robust offline experience.
 
 In particular:-
 
