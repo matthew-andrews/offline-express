@@ -8,6 +8,7 @@
  * html, css & js bootstrap.
  *
  * @author Matt Andrews <code@mattandre.ws>
+ * @copyright The Financial Times
  */
 /*jslint browser:true, node:true*/
 
