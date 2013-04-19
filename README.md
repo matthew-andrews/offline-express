@@ -1,5 +1,7 @@
 # Offline Express
 
+Note: This does not currently work yet.
+
 ## What this package is
 
 It's a piece of express middleware that sits between express and your express application.
