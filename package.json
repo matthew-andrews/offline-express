@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "offline-express",
   "description": "Offline Express",
   "version": "0.0.1",
   "homepage": "http://github.com/matthew-andrews/offline-express",
@@ -7,10 +7,7 @@
     "name": "Matt Andrews",
     "email": "matt@mattandre.ws"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/matthew-andrews/offline-express.git"
-  },
+  "repository": "",
   "bugs": {
     "url": "https://github.com/matthew-andrews/offline-express/issues"
   },
