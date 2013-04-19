@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "description": "Offline Express",
+  "version": "0.0.1",
+  "homepage": "http://github.com/matthew-andrews/offline-express",
+  "author": {
+    "name": "Matt Andrews",
+    "email": "matt@mattandre.ws"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/matthew-andrews/offline-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matthew-andrews/offline-express/issues"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "main": "lib/app",
+  "devDependencies": {
+    "express": "*",
+    "jade": "*"
+  },
+  "keywords": []
+}
