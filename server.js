@@ -9,16 +9,12 @@ var express = require('express');
 
 // Internal deps
 var defaults         = require('./lib/defaults');
-var resourcesJSON    = require('./lib/resources.json');
 var appcacheManifest = require('./lib/appcache.manifest');
 var apiFallback      = require('./lib/api-fallback');
 var iframe           = require('./lib/iframe');
 var boot             = require('./lib/boot');
 
 module.exports = function (options) {
-	if (!options || !options.js || !options.css) {
-		throw new Error("Paths to JS and CSS resources are required.");
-	}
 	if (!options.bootCallback) {
 		throw new Error("Need to provide boot callback");
 	}
@@ -51,16 +47,6 @@ module.exports = function (options) {
 	// The fallback - just a plain/text response
 	app.use(apiFallback({
 		namespace: options.namespace
-	}));
-
-	// The pre-json encoded applicaton resources for
-	// storage in localStorage and use when the app
-	// boots from the app cache.
-	// @deprecated
-	app.use(resourcesJSON({
-		namespace: options.namespace,
-		js: options.js,
-		css: options.css
 	}));
 
 	return app;

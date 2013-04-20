@@ -17,7 +17,8 @@
   "main": "lib/app",
   "devDependencies": {
     "express": "*",
-    "jade": "*"
+    "jade": "*",
+    "grunt-contrib-uglify": "~0.2.0"
   },
   "keywords": []
 }
