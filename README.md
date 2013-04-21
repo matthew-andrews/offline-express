@@ -18,7 +18,6 @@ The main techniques it uses in particular:-
 
 - Managing that bootstrap;
 - Ensuring the your user's appcache's only ever contain bootstrap code (never content);
-- Keeping your users' copies of your application javascript and css (which are stored in their browser's localStorage) up to date;
 - And implementing any work arounds for specific browser bugs or inconsistencies.
 
 ## What this package isn't
@@ -32,13 +31,11 @@ All this package can do is make the working with the app cache spec a little eas
 ```javascript
 var express = require('express');
 var app = express();
-var offline = require('offline/server');
+var offline = require('offline-express/server');
 var path = require('path');
 
 app.use(offline({
-	cookie:    'up',
-	api:       'api',
-	namespace: 'offline'
+	api:       'api'
 }));
 ```
 
@@ -49,12 +46,9 @@ We expect you to be using Common JS modules.
 ```javascript
 
 // At the point in your code where you want to
-var offline = require('offline/client.js');
+var offline = require('offline-express/client.js');
 
-offline({
-	namespace: 'offline',
-	cookie:    'up'
-});
+offline();
 ```
 
 Note: the options listed in the client side should match the
@@ -62,20 +56,11 @@ server side - and should **never change**. Changing them may prevent existing us
 
 ## Options
 
-### `cookie` - options, defaults to "up"
-
-The name of the cookie used during an app cache so that app controllers know whether to return a bootstrap or not.
-
 ### [`api`] - optional
 
 If you serve API URLs (as in URLs that return non-HTML content such as json, xml or csv that will be parsed by javascript) on the same domain as your offline app you can specify the subfolder in which your api lives.
 
 We don't want the browser to return a whole bootstrap Javascript file to your api requests. If you provide an `api` *offline* will ensure any offline requests to URLs within that namespace have the word "OFFLINE" returned to them instead.
-
-### [`namespace`] - optional, defaults to "offline"
-
-The folder in which all of **offline express**'s end points should be beneath.
-
 
 ## End points
 
@@ -88,14 +73,14 @@ This mini-express app exposes the following end-points:-
 During the app cache update process **offline express** will hijack your application's root URL. This is so that only the boot code will be (and not actual app content) is cached inside your user's application caches.
 
 The way it does this and the reasons why is described at length in Tutorial 4).
-#### yourapp.com/[namespace]/iframe
+#### yourapp.com/offline/iframe
 
 An iframe which has the appcache manifest in its `<html>` tag. This is require to solve the problems identified in Tutorial 3.
 
-#### yourapp.com/[namespace]/appcache.manifest
+#### yourapp.com/offline/appcache.manifest
 
 The appcache manifest itself - currently the only technology capable of enabling offline mode on HTML5 web apps. Note - need to ensure the right headers are sent back.
 
-#### yourapp.com/[namespace]/api-fallback
+#### yourapp.com/offline/api-fallback
 
 An API end point to fallback to when the user is offline. It simply returns the word "offline". Should be a plain text response.

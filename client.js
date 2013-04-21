@@ -102,8 +102,6 @@ function onEvent(eventCode, hasChecked) {
  * @return {void}
  */
 module.exports = function(options) {
-	cookie = options.cookie || cookie;
-	namespace = options.namespace || namespace;
 	addMessageListener();
 
 	// Start app cache update process
