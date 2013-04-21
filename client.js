@@ -29,13 +29,12 @@ var statuses = {
 	"4": 'updateready',
 	"5": 'obsolete'
 };
-var offlineEnabled;
-
 
 /**
  * The post message event listener
  *
  * @param  {Event} event Post message event
+ * @private
  * @return void
  */
 function onMessage(event) {
@@ -44,18 +43,11 @@ function onMessage(event) {
 	}
 }
 
-function removeMessageListener() {
-	window.removeEventListener("message", onMessage);
-}
-
-function addMessageListener() {
-	window.addEventListener("message", onMessage, false);
-}
-
 /**
  * Add an iframe into the body to work around
  * the app cache caching masters issue.
  *
+ * @private
  * @return {void}
  */
 function loadIFrame() {
@@ -72,12 +64,12 @@ function loadIFrame() {
 	document.body.appendChild(iframe);
 }
 
-
 /**
  * Listener for the appcache events
  *
  * @param  {String}  eventCode  The application cache code
  * @param  {boolean} hasChecked Whether or not the app cache has checked
+ * @private
  * @return {void}
  */
 function onEvent(eventCode, hasChecked) {
@@ -90,19 +82,19 @@ function onEvent(eventCode, hasChecked) {
 			// Remove appcacheUpdate cookie
 			cookieExpires = new Date(new Date().getTime() - 60 * 5 * 1000);
 			document.cookie = cookie + "=;expires=" + cookieExpires.toGMTString();
-			removeMessageListener();
+			window.removeEventListener("message", onMessage);
 		}
 	}
 }
 
-
 /**
  * Start the app cache install and update process
  *
+ * @public
  * @return {void}
  */
 module.exports = function(options) {
-	addMessageListener();
+	window.addEventListener("message", onMessage, false);
 
 	// Start app cache update process
 	loadIFrame();
