@@ -40,6 +40,7 @@ var statuses = {
 function onMessage(event) {
 	if (event.data && event.data.type && event.data.type === 'appcache:logEvent') {
 		onEvent.apply(window, event.data.args || []);
+		window.removeEventListener("message", onMessage);
 	}
 }
 
@@ -82,7 +83,6 @@ function onEvent(eventCode, hasChecked) {
 			// Remove appcacheUpdate cookie
 			cookieExpires = new Date(new Date().getTime() - 60 * 5 * 1000);
 			document.cookie = cookie + "=;expires=" + cookieExpires.toGMTString();
-			window.removeEventListener("message", onMessage);
 		}
 	}
 }
