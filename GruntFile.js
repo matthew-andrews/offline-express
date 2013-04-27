@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
-      iframe_cient: {
+      iframe_client: {
         files: {
           'lib/iframe/client.min.js': ['lib/iframe/client.js']
         }

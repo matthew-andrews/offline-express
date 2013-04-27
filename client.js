@@ -14,12 +14,18 @@
 
 'use strict';
 
-// Deps
+/**
+ * External deps
+ */
+
 var defaults = require('./lib/defaults');
 var cookie = defaults.cookie;
 var namespace = defaults.namespace;
 
-// Local vars
+/**
+ * Local vars
+ */
+
 var statuses = {
   "-1": 'timeout',
   "0": 'uncached',
@@ -37,6 +43,7 @@ var statuses = {
  * @private
  * @return void
  */
+
 function onMessage(event) {
   if (event.data && event.data.type && event.data.type === 'appcache:logEvent') {
     onEvent.apply(window, event.data.args || []);
@@ -51,6 +58,7 @@ function onMessage(event) {
  * @private
  * @return {void}
  */
+
 function loadIFrame() {
 
   // HACK: Set a cookie so that the application
@@ -73,6 +81,7 @@ function loadIFrame() {
  * @private
  * @return {void}
  */
+
 function onEvent(eventCode, hasChecked) {
   var s = statuses[eventCode], loaderEl, cookieExpires;
   if (hasChecked || s === 'timeout') {
@@ -93,6 +102,7 @@ function onEvent(eventCode, hasChecked) {
  * @public
  * @return {void}
  */
+
 module.exports = function(options) {
   window.addEventListener("message", onMessage, false);
 

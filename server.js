@@ -4,10 +4,16 @@
  * @author Matthew Andrews <matt@mattandre.ws>
  */
 
-// External deps
+/**
+ * External deps
+ */
+
 var express = require('express');
 
-// Internal deps
+/**
+ * Internal deps
+ */
+
 var defaults         = require('./lib/defaults');
 var appcacheManifest = require('./lib/appcache.manifest');
 var apiFallback      = require('./lib/api-fallback');
