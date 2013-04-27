@@ -32,10 +32,14 @@ All this package can do is make the working with the app cache spec a little eas
 var express = require('express');
 var app = express();
 var offline = require('offline-express/server');
-var path = require('path');
+
+// An express style callback that returns app bootstrap code.
+// See: http://labs.ft.com/2012/08/basic-offline-html5-web-app/
+var boot = require('localstorage-boot');
 
 app.use(offline({
-	api:       'api'
+  bootCallback: boot
+  api: 'api'
 }));
 ```
 
