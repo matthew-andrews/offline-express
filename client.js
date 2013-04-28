@@ -69,7 +69,7 @@ function loadIFrame() {
   var iframe = document.createElement('IFRAME');
   iframe.setAttribute('style', 'width:0px; height:0px; visibility:hidden; position:absolute; border:none');
   iframe.setAttribute('src', '/' + namespace + '/iframe');
-  iframe.setAttribtue('id', 'appcache');
+  iframe.setAttribute('id', 'appcache');
   document.body.appendChild(iframe);
 }
 
@@ -103,7 +103,7 @@ function onEvent(eventCode, hasChecked) {
  * @return {void}
  */
 
-module.exports = function(options) {
+module.exports.populateCache = function(options) {
   window.addEventListener("message", onMessage, false);
 
   // Start app cache update process
