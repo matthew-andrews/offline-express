@@ -103,7 +103,7 @@ function onEvent(eventCode, hasChecked) {
  * @return {void}
  */
 
-module.exports.populateCache = function(options) {
+module.exports = function(options) {
   window.addEventListener("message", onMessage, false);
 
   // Start app cache update process
