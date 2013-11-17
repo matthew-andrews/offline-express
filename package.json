@@ -16,9 +16,11 @@
   },
   "main": "server.js",
   "browser": "client.js",
-  "devDependencies": {
+  "dependencies": {
     "express": "*",
-    "jade": "*",
+    "jade": "*"
+  },
+  "devDependencies": {
     "grunt-contrib-uglify": "~0.2.0",
     "grunt": "*"
   },
