@@ -14,7 +14,8 @@
   "engines": {
     "node": "*"
   },
-  "main": "lib/app",
+  "main": "server.js",
+  "browser": "client.js",
   "devDependencies": {
     "express": "*",
     "jade": "*",

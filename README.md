@@ -31,7 +31,7 @@ All this package can do is make the working with the app cache spec a little eas
 ```javascript
 var express = require('express');
 var app = express();
-var offline = require('offline-express/server');
+var offline = require('offline-express');
 
 // An express style callback that returns app bootstrap code.
 // See: http://labs.ft.com/2012/08/basic-offline-html5-web-app/
@@ -50,7 +50,7 @@ We expect you to be using Common JS modules.
 ```javascript
 
 // At the point in your code where you want to
-var offline = require('offline-express/client.js');
+var offline = require('offline-express');
 
 offline();
 ```
