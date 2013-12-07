@@ -45,7 +45,7 @@ var statuses = {
  */
 
 function onMessage(event) {
-  if (event.data && event.data.type && event.data.type === 'appcache:logEvent') {
+  if (event.data && event.data.type && event.data.type === 'appcache:event') {
     onEvent.apply(window, event.data.args || []);
     window.removeEventListener("message", onMessage);
   }
